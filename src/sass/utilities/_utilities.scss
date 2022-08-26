@@ -1,0 +1,135 @@
+@each $name, $color in $colors {
+  .bg-#{$name} { background-color: var(--color-#{$name}) !important; }
+}
+
+.bg-white-20 { background-color: color-opac(white, .2); }
+
+@each $name, $color in $colors {
+  .text-#{$name} { color: var(--color-#{$name}); }
+}
+
+.d-none { display: none !important; }
+.d-flex { display: flex !important; }
+.d-block { display: block !important; }
+.d-inline-block { display: inline-block !important; }
+
+$_displays: none, inline-block, block, flex;
+
+@each $break in $_sizesBreaks {
+  @include media-below($break) {
+    @each $value in $_displays {
+      .#{$break}\:d-#{$value} { display: $value !important; }
+    }
+  }
+}
+
+@media (max-width: (1300px)) {
+  .xxl\:d-none {
+    display: none !important;
+  }
+}
+
+.html-overflow-hidden {
+  overflow: hidden !important;
+  body { overflow-y: scroll; }
+}
+
+.origin {
+  &-top  { transform-origin: top !important; }
+  &-left { transform-origin: left !important; }
+}
+
+.overflow {
+  &-scroll  { overflow: scroll !important; }
+  &-hidden  { overflow: hidden !important; }
+  &-normal  { overflow: initial !important; }
+  &-visible { overflow: visible !important; }
+}
+
+.pointer-events {
+  &-auto { pointer-events: auto !important; }
+  &-none { pointer-events: none !important; }
+}
+
+.bg-image {
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-position: center center;
+	width: 100%;
+	height: 100%;
+}
+
+.img-ratio {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.line-through { text-decoration: line-through; }
+.underline    { text-decoration: underline; }
+.italic       { font-style: italic; }
+.uppercase    { text-transform: uppercase; }
+.capitalize   { text-transform: capitalize; }
+.normal       { text-transform: none; }
+
+.rounded {
+  &-0 { border-radius: 0; }
+  &-4 { border-radius: 4px; }
+  &-8 { border-radius: 8px; }
+  &-100 { border-radius: 100px; }
+  &-full { border-radius: 100%; }
+}
+
+.border {
+  &-light {
+    border: 1px solid var(--color-border) !important;
+  }
+}
+
+.size {
+  &-64 {
+    flex-shrink: 0;
+    width: 64px;
+    height: 64px;
+  }
+}
+
+.shadow {
+  &-1 { box-shadow: 0px 20px 40px 0px #05103612; }
+}
+
+.flex-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.flex-wrap {
+  flex-wrap: wrap;
+}
+
+.h {
+  &-full {
+    height: 100% !important;
+  }
+  &-60 {
+    height: 60px !important;
+  }
+}
+
+.object-cover {
+  object-fit: cover;
+}
+
+.z {
+  &--1 { z-index: -1; }
+  &-0 { z-index: 0; }
+  &-1 { z-index: 1; }
+  &-2 { z-index: 2; }
+  &-3 { z-index: 3; }
+  &-4 { z-index: 4; }
+  &-5 { z-index: 5; }
+}
